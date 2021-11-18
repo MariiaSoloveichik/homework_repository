@@ -8,7 +8,7 @@ def test_find_maximal_sum():
 
 def test_error():
     """Testing len(nums) == 0  case"""
-    assert find_maximal_subarray_sum([], 2) == "Invalid input: empty list"
+    assert find_maximal_subarray_sum([], 2) == ValueError("Invalid input")
 
 
 def test_short_list_case():
