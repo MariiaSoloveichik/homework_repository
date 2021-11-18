@@ -29,5 +29,6 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
         for line in fi:
             if line == "\n":
                 continue
-            lst.append(int(line.strip()))
+            else:
+                lst.append(int(line.strip()))
     return min(lst), max(lst)
