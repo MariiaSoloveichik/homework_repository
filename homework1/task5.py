@@ -16,7 +16,7 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
     return - Max sum of sub-array
     """
     if len(nums) == 0 or k == 0:
-        raise ValueError("Invalid input")
+        return 0
     max_sum = max(nums)
     while k > 0:
         for i in range(len(nums) - k + 1):
