@@ -28,8 +28,7 @@ def check_fibonacci(data: Sequence[int]) -> bool:
     if not is_valid(data[0]) or not is_valid(data[1]):
         return False
 
-    for i in range(2, len(data)):
-        if not (data[i] == data[i - 1] + data[i - 2]):
+    for i in range(len(data) - 2):
+        if not data[i] + data[i + 1] == data[i + 2] or not is_valid(data[i]):
             return False
-        data = data[1:]
     return True
