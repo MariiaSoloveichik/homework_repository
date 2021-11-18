@@ -1,5 +1,4 @@
-from task3 import find_maximum_and_minimum
-
+from homework1.task3 import find_maximum_and_minimum
 
 
 def test__file_with_empty_strings_case():

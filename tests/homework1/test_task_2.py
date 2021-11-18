@@ -1,4 +1,4 @@
-from task2 import check_fibonacci
+from homework1.task2 import check_fibonacci
 
 
 def test_empty_case():
