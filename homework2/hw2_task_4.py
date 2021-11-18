@@ -23,7 +23,8 @@ from typing import Callable
 
 
 def cache_func(function: Callable) -> Callable:
-    """ Accepts another function as an argument and return such a function, every call to initial one cached."""
+    """ Accepts another function as an argument and return such
+    a function, every call to initial one cached."""
     cache_place = {}
 
     def wrapper(*args, **kwargs):

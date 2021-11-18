@@ -2,7 +2,8 @@ from homework_rep.homework2.hw2_task_4.py import cache_func
 
 
 def test_cache_func():
-    """ Accepts another function as an argument and return such a function, every call to initial one cached."""
+    """ Accepts another function as an argument and return
+    such a function, every call to initial one cached."""
     def func(a, b):
         return (a ** b) ** 2
 
