@@ -8,9 +8,9 @@ Given a file containing text. Complete using only default collections:
 """
 
 
+from typing import List
 from collections import Counter, defaultdict
 import string
-from typing import List
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
