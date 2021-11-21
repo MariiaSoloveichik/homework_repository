@@ -1,4 +1,4 @@
-from homework2.hw2_task_2 import major_and_minor_element
+from homework2.hw2_task_2 import major_and_minor_elem
 
 
 def test_major_and_minor_elem():

@@ -7,11 +7,11 @@ def test_cache_func():
     def func(a, b):
         return (a ** b) ** 2
 
-    cache_func = cache(func)
+    cache = cache_func(func)
 
     some = 100, 200
 
-    val_1 = cache_func(*some)
-    val_2 = cache_func(*some)
+    val_1 = cache(*some)
+    val_2 = cache(*some)
 
     assert val_1 is val_2
