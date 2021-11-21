@@ -9,7 +9,3 @@ def test_regular_case():
     :rtype: bool
     """
     assert boost_slow_calculate(range(500)) == 1024259
-
-
-
-
