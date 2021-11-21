@@ -36,7 +36,7 @@ def test_count_punctuation_chars():
 def test_count_non_ascii_chars():
     """ Check how works this function and how much
     non ascii chars"""
-    assert count_non_ascii_chars("data.txt") == 2971
+    assert count_non_ascii_chars("data.txt") == 2972
 
 
 def test_get_most_common_non_ascii_char():
