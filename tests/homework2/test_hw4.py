@@ -1,4 +1,4 @@
-from homework_rep.homework2.hw2_task_4.py import cache_func
+from homework2.hw2_task_4 import cache_func
 
 
 def test_cache_func():

@@ -1,20 +1,36 @@
-import string
+from string import ascii_lowercase
 
-from homework_rep.homework2.hw2_task_5.py import custom_range
+import pytest
 
-
-def test_1_custom_range():
-    """Accepts any iterable of unique values and then it behaves
-    as range function."""
-    assert = custom_range(string.ascii_lowercase, 'g') == \
-             ['a', 'b', 'c', 'd', 'e', 'f']
+from homework2.hw2_task_5 import custom_range
 
 
-def test_1_custom_range():
-    assert = custom_range(string.ascii_lowercase, 'g', 'p') == \
-             ['g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']
+@pytest.mark.parametrize(
+    "iterable, start, stop, step, output",
+    [
+        (ascii_lowercase, "l", "g", 2, []),
+        (ascii_lowercase, "g", "l", -2, []),
+        (ascii_lowercase, "l", "g", None, []),
+        (ascii_lowercase, "l", "g", -2, ["l", "j", "h"]),
+        (ascii_lowercase, "g", "l", None, ["g", "h", "i", "j", "k"]),
+        (ascii_lowercase, "g", None, None, ["a", "b", "c", "d", "e", "f"]),
+    ],
+)
+def test_positive_cases(iterable, start, stop, step, output):
+    assert custom_range(iterable, start, stop, step) == output
 
 
-def test_1_custom_range():
-    assert = custom_range(string.ascii_lowercase, 'p', 'g', -2) ==\
-             ['p', 'n', 'l', 'j', 'h']
+@pytest.mark.parametrize(
+    "iterable, start, stop, step",
+    [
+        (ascii_lowercase, "0", None, None),
+        (ascii_lowercase, "0", "t", None),
+        (ascii_lowercase, "t", "10", None),
+        (ascii_lowercase, "0", None, None),
+        (ascii_lowercase, "0", "10", None),
+    ],
+)
+def test_negative_cases(iterable, start, stop, step):
+    with pytest.raises(ValueError) as error:
+        custom_range(iterable, start, stop, step)
+    assert error.value.args[0] == "objects are not in list"

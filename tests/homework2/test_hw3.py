@@ -1,4 +1,4 @@
-from homework_rep.homework2.hw2_task_3.py import combinations
+from homework2.hw2_task_3 import combinations
 
 
 def test_1_combinations():
