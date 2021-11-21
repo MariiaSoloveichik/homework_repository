@@ -23,5 +23,6 @@ def test_cache_decorator():
         _, result_args = func(*other_args)
         assert result_args == other_args
 
-    # cache should expire after function called "times" times with the same arguments
+    # cache should expire after function called "times" times
+    # with the same arguments
     assert func(args) != result
