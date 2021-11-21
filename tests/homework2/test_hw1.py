@@ -1,4 +1,8 @@
-import homework2.hw2_task_2
+from homework2.hw2_task_1 import (count_non_ascii_chars,
+                                  count_punctuation_chars,
+                                  get_longest_diverse_words,
+                                  get_most_common_non_ascii_char,
+                                  get_rarest_char)
 
 
 def test_get_longest_diverse_words():
