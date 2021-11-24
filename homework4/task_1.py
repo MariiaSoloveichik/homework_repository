@@ -29,8 +29,8 @@ You will learn:
 
 def read_magic_number(path: str) -> bool:
     try:
-        with open(path, 'r') as fi:
-            line = fi.readline().strip()
+        with open(path, 'r') as fn:
+            line = fn.readline().strip()
             try:
                 return 1 <= float(line) < 3
             except ValueError:
