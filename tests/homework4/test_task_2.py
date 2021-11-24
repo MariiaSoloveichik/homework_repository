@@ -10,7 +10,7 @@ def test_count_dots_on_i_correct_answer():
 
 
 def test_count_dots_on_i_with_mock_correct_answer():
-    path_mock = 'homework4.task.html_by_url'
+    path_mock = 'homework4.task_2.html_by_url'
     with patch(target=path_mock, return_value='ii'):
         assert count_dots_on_i('https://example.com/') == 2
 
