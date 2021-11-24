@@ -17,7 +17,7 @@ def test_negative_case(temp_file):
 
 def test_value_error_case(temp_file):
     """Testing raise of ValueError"""
-    temp_file.write_text("a b c\n223344\n556677\npryaa\nnikc", encoding='utf-8')
+    temp_file.write_text("a b c\n223344\n556677\nprya\nnikc", encoding='utf-8')
     with pytest.raises(ValueError):
         read_magic_number(temp_file)
 
