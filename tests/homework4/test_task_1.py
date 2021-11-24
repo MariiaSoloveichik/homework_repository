@@ -1,6 +1,6 @@
 import pytest
 
-from homework4.task_1 import read_magic_number
+import homework4.task_1
 
 
 def test_positive_case(temp_file):
