@@ -12,6 +12,7 @@ def create_and_del_true_file():
     yield
     os.remove('temp_file.txt')
 
+
 @pytest.fixture()
 def create_and_del_false_file():
     with open(file='temp_file.txt', mode='w', encoding='utf8') as fi:
