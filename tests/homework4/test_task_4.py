@@ -1,6 +1,7 @@
 from homework4.task_4 import fizzbuzz
 import pytest
 
+
 def test_fizzbuzz_return_correct_answer():
     assert fizzbuzz(5) == ['1', '2', 'Fizz', '4', 'Buzz']
 
