@@ -10,4 +10,4 @@ def test_fizzbuzz_negative_integer():
 
 
 def test_fizzbuzz_not_integer_element():
-    assert fizzbuzz(2.3) == ValueError: n have to be an integer
+    assert fizzbuzz(2.3) == ValueError(": n have to be an integer")
