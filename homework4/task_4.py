@@ -26,11 +26,11 @@ def fizzbuzz(n: int) -> List[str]:
         raise ValueError("n have to be an integer")
     for num in range(1, n+1):
         if num % 3 == 0 and num % 5 == 0:
-            result.append("fizz buzz")
+            result.append("Fizz Buzz")
         elif num % 3 == 0:
-            result.append('fizz')
+            result.append('Fizz')
         elif num % 5 == 0:
-            result.append('buzz')
+            result.append('Buzz')
         else:
             result.append(str(num))
     return result
