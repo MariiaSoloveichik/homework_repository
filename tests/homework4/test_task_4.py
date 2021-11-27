@@ -1,5 +1,6 @@
-from homework4.task_4 import fizzbuzz
 import pytest
+
+from homework4.task_4 import fizzbuzz
 
 
 def test_fizzbuzz_return_correct_answer():
