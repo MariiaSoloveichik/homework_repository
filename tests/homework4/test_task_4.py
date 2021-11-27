@@ -7,7 +7,3 @@ def test_fizzbuzz_return_correct_answer():
 
 def test_fizzbuzz_negative_integer():
     assert fizzbuzz(-1) == []
-
-
-def test_fizzbuzz_not_integer_element():
-    assert fizzbuzz(2.3) == ValueError("n have to be an integer")
