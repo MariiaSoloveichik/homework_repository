@@ -25,7 +25,7 @@ def fizzbuzz(n: int) -> List[str]:
     if not isinstance(n, int):
         raise ValueError("n have to be an integer")
     for num in range(1, n+1):
-        if num % 3 == 0 and num % 5 == 0:
+        if num % 15 == 0:
             result.append("Fizz Buzz")
         elif num % 3 == 0:
             result.append('Fizz')
