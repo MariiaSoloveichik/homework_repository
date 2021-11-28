@@ -6,7 +6,7 @@ from homework5.task_1 import Student, Teacher
 def test_create_person():
     teacher = Teacher("Daniil", "Shadrin")
     student = Student("Roman", "Petrov")
-    assert teacher.last_name == "Daniil" and student.first_name == "Petrov"
+    assert teacher.last_name == "Shadrin" and student.first_name == "Roman"
 
 
 def test_create_homework():
