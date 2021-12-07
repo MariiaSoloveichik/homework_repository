@@ -73,6 +73,7 @@ class Student:
     Attributes
     last_name: Student's last name
     first_name: Student's first name
+    
     Methods
     init: attributes
     do_homework: Static method. Returns homework or
