@@ -73,7 +73,6 @@ class Student:
     Attributes
     last_name: Student's last name
     first_name: Student's first name
-    
     Methods
     init: attributes
     do_homework: Static method. Returns homework or
@@ -126,7 +125,7 @@ class Teacher:
         Creates homework object
         text: Text of the task
         deadline: Number of days to complete
-        Homework object
+        return: Homework object
         """
         created = datetime.datetime.now()
         return Homework(text, deadline, created)
