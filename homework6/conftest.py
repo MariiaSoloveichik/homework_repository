@@ -10,4 +10,4 @@ def teacher():
 
 @pytest.fixture(scope="session")
 def student():
-    return Student('Tom', 'Hiddlston')
+    return Student('Tom', 'Hidlston')
