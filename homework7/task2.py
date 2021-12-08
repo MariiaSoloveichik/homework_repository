@@ -19,7 +19,8 @@ import re
 
 def backspace_compare(first: str, second: str):
     """
-    Function for comparing two strings. Return boolean value about string equality.
+    Function for comparing two strings. Return boolean value about
+     string equality.
     """
     first_backspace = re.findall(r'[\x00-\x7F]#', first)
     second_backspace = re.findall(r'[\x00-\x7F]#', second)
