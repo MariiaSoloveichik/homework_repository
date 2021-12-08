@@ -1,6 +1,6 @@
 import pytest
 
-from homework6.task2 import Student, Teacher
+from task2 import Student, Teacher
 
 
 @pytest.fixture(scope="session")
