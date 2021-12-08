@@ -1,6 +1,6 @@
-import pytest
+from homework6.task2 import Student, Teacher
 
-from task2 import Student, Teacher
+import pytest
 
 
 @pytest.fixture(scope="session")
@@ -10,4 +10,4 @@ def teacher():
 
 @pytest.fixture(scope="session")
 def student():
-    return Student('Tom', 'Hidlston')
+    return Student('Tom', 'Hiddlston')
