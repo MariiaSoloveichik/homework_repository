@@ -17,19 +17,6 @@ def test_Teacher_attributes():
         opp_teacher.last_name == 'Shadrin'
 
 
-def test_homework_done_class_attribute(teacher, student):
-    """Testing that homework_done is
-    the same thing for class and instance of class"""
-    oop_hw = teacher.create_homework('Learn OOP', 1)
-    result_1 = student.do_homework(oop_hw, "I've done this homework")
-    teacher.check_homework(result_1)
-    temp_1 = teacher.homework_done
-
-    teacher.check_homework(result_1)
-    temp_2 = Teacher.homework_done
-    assert temp_1 == temp_2
-
-
 def test_deadline_exception_function(teacher, student):
     """Testing DeadlineError"""
     oop_hw = teacher.create_homework('Learn OOP', 0)
