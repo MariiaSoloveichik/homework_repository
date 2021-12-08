@@ -1,6 +1,4 @@
-import pytest
-
-from homework6.task2 import DeadlineError, Student, Teacher
+from homework6.task2 import Student, Teacher
 
 
 def test_Student_attributes():
@@ -15,10 +13,3 @@ def test_Teacher_attributes():
     opp_teacher = Teacher('Daniil', 'Shadrin')
     assert opp_teacher.first_name == 'Daniil' and \
         opp_teacher.last_name == 'Shadrin'
-
-
-def test_deadline_exception_function(teacher, student):
-    """Testing DeadlineError"""
-    oop_hw = teacher.create_homework('Learn OOP', 0)
-    with pytest.raises(DeadlineError):
-        student.do_homework(oop_hw, "I've done this homework")
