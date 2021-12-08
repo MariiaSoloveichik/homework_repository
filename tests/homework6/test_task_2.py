@@ -1,6 +1,4 @@
-import pytest
-
-from homework6.task2 import DeadlineError, Student, Teacher
+from homework6.task2 import Student, Teacher
 
 
 def test_Student_attributes_2():
