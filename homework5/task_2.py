@@ -19,6 +19,9 @@ from typing import Any
 
 
 class CustomWrapper:
+    """Decorator which saves original
+    function doc and name attributes
+    original_func: Function for saving"""
     def __init__(self, func) -> None:
         self.func = func
 
