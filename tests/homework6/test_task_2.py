@@ -2,11 +2,13 @@ import pytest
 
 from homework6.task2 import DeadlineError, Student, Teacher
 
+
 def test_Student_attributes():
     """Testing student attributes"""
     lazy_student = Student('Roman', 'Petrov')
     assert lazy_student.first_name == 'Roman' and \
         lazy_student.last_name == 'Petrov'
+
 
 def test_Teacher_attributes():
     """Testing teacher attributes"""
