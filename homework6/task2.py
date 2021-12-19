@@ -49,25 +49,64 @@ class DeadlineError(Exception):
 
 
 class Homework:
+    """Creates object of homework
+    Attributes:
+    text: Text of the task
+    deadline: Number of days to complete
+    created: Time and date of creation
+    Methods:
+    init: attributes
+    is_active: Checks expired deadline
+    """
     def __init__(self, text: str, deadline: int,
                  created: datetime.datetime) -> None:
+        """
+        attributes:
+        text: Text of the task
+        deadline: Number of days to complete
+        created: Time and date of creation
+        """
         self.text = text
         self.deadline = datetime.timedelta(days=deadline)
         self.created = created
 
     def is_active(self) -> bool:
+        """
+        Checks expired deadline
+        return boolean about expired deadline
+        """
         if not datetime.datetime.now() < self.deadline + self.created:
             raise DeadlineError
 
 
 class Teacher:
+    """Creates teacher person
+    Attributes
+    last_name: Teacher's last name
+    first_name: Teacher's first name
+    Methods
+    init: Set all required attributes
+    create_homework: Static method. Creates and returns
+    homework object
+    """
     homework_done = defaultdict(list)
 
     def __init__(self, first_name: str, last_name: str) -> None:
+        """
+        attributes:
+        last_name: Teacher's last name
+        first_name: Teacher's first name
+        """
         self.first_name = first_name
         self.last_name = last_name
 
     def check_homework(self, homework_res):
+        """
+        check_homework - accepts an instance of HomeworkResult and
+        returns True
+        if the student's response is more than 5 characters, also,
+        if the check is successful, add to homework_done.
+        """
         if len(homework_res.solution) >= 5:
             if homework_res not in self.homework_done[homework_res.homework]:
                 self.homework_done[homework_res.homework].append(homework_res)
@@ -76,6 +115,12 @@ class Teacher:
 
     @classmethod
     def reset_results(cls, homework_to_delete=None):
+        """
+        reset_results - if you pass the Homework instance,
+        it deletes only the results of this task from
+        homework_done, if you do not pass anything,
+        it will completely reset homework_done.
+        """
         if homework_to_delete is None:
             cls.homework_done.clear()
         else:
@@ -83,12 +128,23 @@ class Teacher:
 
     @staticmethod
     def create_homework(text: str, deadline: int) -> Homework:
+        """
+        Creates homework object
+        text: Text of the task
+        deadline: Number of days to complete
+        return: Homework object
+        """
         created = datetime.datetime.now()
         return Homework(text, deadline, created)
 
 
 class Student(Teacher):
     def do_homework(self, homework: Homework, solution: str):
+        """
+        Static method for doing homework
+        homework: Homework class object
+        return Homework object or expired deadline warning
+        """
         try:
             homework.is_active()
         except DeadlineError:
@@ -97,6 +153,9 @@ class Student(Teacher):
 
 
 class HomeworkResult:
+    """
+        Result of student's homework.
+    """
     def __init__(self, author: Student, homework:
                  Homework, solution: str) -> None:
         self.author = author

@@ -11,6 +11,10 @@ reset_instances_counter - сбросить счетчик экземпляров
 
 @classmethod
 def reset_instances_counter(cls):
+    """
+    resets the instance counter,
+    returns the value before the reset
+    """
     temp = cls._count
     cls._count = 0
     return temp
@@ -18,15 +22,25 @@ def reset_instances_counter(cls):
 
 @classmethod
 def my_init(cls):
+    """
+    adds the number of instances
+    """
     cls._count += 1
 
 
 @classmethod
 def get_created_instances(cls):
+    """
+    returns the number of instances of the class created
+    """
     return cls._count
 
 
 def instances_counter(cls):
+    """
+    instances_counter decorator that applies to any class
+    and adds 2 methods to it:
+    """
     setattr(cls, '_count', 0)
     setattr(cls, '__init__', my_init)
     setattr(cls, 'get_created_instances',  get_created_instances)
