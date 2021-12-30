@@ -4,6 +4,7 @@ from homework8.task1 import KeyValueStorage
 
 storage = KeyValueStorage('task1.txt')
 
+
 def test_1_key_value_storage_positive():
     """
     Testing that the attributes of the KeyValueStorage class contain keys and
