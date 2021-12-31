@@ -19,12 +19,14 @@ def presidents():
     finally:
         presidents.close_con_to_bd()
 
+
 def test_check_table_len(presidents):
     """
     Testing that method __len__ returns a correct length of
     specified tables from database.
     """
     assert len(presidents) == 3
+
 
 def test_table_data_contains_return_bool(presidents):
     """
