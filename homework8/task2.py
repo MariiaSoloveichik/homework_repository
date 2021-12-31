@@ -113,7 +113,8 @@ class TableData:
 
 
 if __name__ == '__main__':
-    presidents = TableData(database_name='example.sqlite', table_name='presidents')
+    presidents = TableData(database_name='example.sqlite',
+                           table_name='presidents')
     print(len(presidents))
     for president in presidents:
         print(president["name"])
