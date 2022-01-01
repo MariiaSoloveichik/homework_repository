@@ -1,5 +1,3 @@
-import pytest
-
 from homework11.task2 import Order, elder_discount, morning_discount
 
 
