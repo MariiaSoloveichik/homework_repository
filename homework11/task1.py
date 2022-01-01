@@ -21,6 +21,8 @@ class SizesEnum(metaclass=SimplifiedEnum):
 assert ColorsEnum.RED == "RED"
 assert SizesEnum.XL == "XL"
 """
+
+
 class SimplifiedEnum(type):
     def __new__(cls, name, bases, attrs):
         """
