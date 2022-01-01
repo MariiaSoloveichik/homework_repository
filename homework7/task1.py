@@ -10,7 +10,16 @@ from typing import Any
 
 
 def decorator(count_):
+    """
+    Decorator for counting the occurrence of elements for various structures
+    :param: count_
+    :return: occurrences counter
+    """
     def occurrences_counter(key, item, element):
+        """
+        Occurrences counter
+        :param: key, item, element
+        """
         if element == key:
             next(count_)
         if element == item:
@@ -26,6 +35,16 @@ def decorator(count_):
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
+    """
+    Function takes element and finds the number of counter of this element in
+    the tree.
+    Tree can only contains basic structures like:
+    str, list, tuple, dict, set, int, bool
+    :param tree: dictionary
+    :param element: any basic structures
+    (str, list, tuple, dict, set, int, bool)
+    :return: integer, number of occurrences in the tree.
+    """
     count_ = count()
     decorated_occurences = decorator(count_)
     for key, item in tree.items():
