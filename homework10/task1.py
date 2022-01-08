@@ -1,21 +1,23 @@
 """
 Homework
-Ваша задача спарсить информацию о компаниях, находящихся в индексе S&P 500 с данного сайта: <br>
+Ваша задача спарсить информацию о компаниях, находящихся в индексе S&P 500
+с данного сайта: <br>
 https://markets.businessinsider.com/index/components/s&p_500
 Для каждой компании собрать следующую информацию:
-* Текущая стоимость в рублях (конвертацию производить по текущему курсу, взятому с сайта [центробанка РФ]
-(http://www.cbr.ru/development/sxml/))
+*Текущая стоимость в рублях (конвертацию производить по текущему курсу, взятому
+с сайта [центробанка РФ] (http://www.cbr.ru/development/sxml/))
 * Код компании (справа от названия компании на странице компании)
 * P/E компании (информация находится справа от графика на странице компании)
 * Годовой рост/падение компании в процентах (основная таблица)
-* Высчитать какую прибыль принесли бы акции компании (в процентах), если бы они были куплены на уровне 52 Week Low и
+* Высчитать какую прибыль принесли бы акции компании (в процентах),
+если бы они были куплены на уровне 52 Week Low и
 проданы на уровне 52 Week High (справа от графика на странице компании)
 Сохранить итоговую информацию в 4 JSON файла:
 1. Топ 10 компаний с самими дорогими акциями в рублях.
 2. Топ 10 компаний с самым низким показателем P/E.
 3. Топ 10 компаний, которые показали самый высокий рост за последний год
-4. Топ 10 комппаний, которые принесли бы наибольшую прибыль, если бы были куплены на самом минимуме и проданы на самом
- максимуме за последний год.
+4. Топ 10 комппаний, которые принесли бы наибольшую прибыль, если бы были
+куплены на самом минимуме и проданы на самом максимуме за последний год.
 <br>Пример формата:
 ```
 [
@@ -48,7 +50,8 @@ async def get_current_value(session: aiohttp.ClientSession) -> float:
     date_req = datetime.today().strftime("%d/%m/%Y")
     cbr_url = f"http://www.cbr.ru/scripts/XML_daily.asp?date_req={date_req}"
     page = BeautifulSoup(await get_html_content(session, cbr_url), "lxml")
-    dollar_value = page.find("valute", id="R01235").find("value").text.replace(",", ".")
+    dollar_value = \
+        page.find("valute", id="R01235").find("value").text.replace(",", ".")
     return float(dollar_value)
 
 
@@ -58,7 +61,8 @@ def get_value(parameter: str, soup: BeautifulSoup) -> Optional[float]:
     :return: float
     """
     search_value = re.search(r"([0-9]*\.[0-9]*)\r\n.*" + parameter, str(soup))
-    return float(search_value.group(1).replace(",", "")) if search_value else None
+    return float(search_value.group(1).replace(",", "")) if search_value \
+        else None
 
 
 def get_potential_profit(soup: BeautifulSoup) -> float:
@@ -67,7 +71,8 @@ def get_potential_profit(soup: BeautifulSoup) -> float:
     :param soup: response in html format
     :return: float
     """
-    low52week_value = get_value("52 Week Low", soup.find("div", {"class": "snapshot"}))
+    low52week_value = get_value("52 Week Low",
+                                soup.find("div", {"class": "snapshot"}))
     high52week_value = get_value(
         "52 Week High", soup.find("div", {"class": "snapshot"})
     )
@@ -78,7 +83,8 @@ def get_potential_profit(soup: BeautifulSoup) -> float:
     )
 
 
-async def get_html_content(session: aiohttp.ClientSession, url_link: str) -> str:
+async def get_html_content(session: aiohttp.ClientSession,
+                           url_link: str) -> str:
     """
     Function gets html content from website
     :param url_link: url website
@@ -113,7 +119,8 @@ async def get_company_name_href_growth(
             .text.replace("%", "")
             .replace("%", "")
         )
-        company_name_href_growth.append({"name": name, "href": href, "growth": growth})
+        company_name_href_growth.append({"name": name, "href": href,
+                                         "growth": growth})
     return company_name_href_growth
 
 
@@ -133,7 +140,8 @@ async def get_company_info(
     - growth
     - potential profit
     :param session: Tag object corresponds to an HTML tag in table pages
-    :param company_name_href_growth: Tag object corresponds to an HTML tag in table pages
+    :param company_name_href_growth: Tag object corresponds
+    to an HTML tag in table pages
     :param dollar_value: current USD rate
     :return: Dict
     """
@@ -141,7 +149,8 @@ async def get_company_info(
         "https://markets.businessinsider.com" + company_name_href_growth["href"]
     )
     soup = BeautifulSoup(await get_html_content(session, company_url), "lxml")
-    price_in_dollars = soup.find(class_="price-section__current-value").text.replace(
+    price_in_dollars = soup.find(class_="price-section__current-value").\
+        text.replace(
         ",", ""
     )
     company_info = {
@@ -212,7 +221,8 @@ def top_10_largest_potential_profit(data: List) -> None:
 
 async def main() -> Tuple:
     pages = [
-        "https://markets.businessinsider.com/index/components/s&p_500?p=" + str(value)
+        "https://markets.businessinsider.com/index/components/s&p_500?p="
+        + str(value)
         for value in range(1, 11)
     ]
     async with aiohttp.ClientSession() as session:
