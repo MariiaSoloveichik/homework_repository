@@ -146,7 +146,8 @@ async def get_company_info(
     :return: Dict
     """
     company_url = (
-        "https://markets.businessinsider.com" + company_name_href_growth["href"]
+        "https://markets.businessinsider.com" + company_name_href_growth
+    ["href"]
     )
     soup = BeautifulSoup(await get_html_content(session, company_url), "lxml")
     price_in_dollars = soup.find(class_="price-section__current-value").\
@@ -155,7 +156,8 @@ async def get_company_info(
     )
     company_info = {
         "name": company_name_href_growth["name"],
-        "code": soup.find(class_="price-section__category").find("span").text[2:],
+        "code": soup.find(class_="price-section__category").find("span").
+                    text[2:],
         "price": round(float(price_in_dollars) * dollar_value, 2),
         "p_e": get_value(
             "P/E Ratio", soup.find_all("div", class_="snapshot__data-item")
@@ -171,7 +173,8 @@ def save_json(sorted_data: List[Dict], description: str, key: str) -> None:
     Saving information to JSON file
     """
     data_to_json = [
-        {"code": company["code"], "name": company["name"], f"{key}": company[key]}
+        {"code": company["code"], "name": company["name"], f"{key}":
+            company[key]}
         for company in sorted_data
     ]
     json_name = "top_10_" + description + "_" + key + ".json"
@@ -237,7 +240,8 @@ async def main() -> Tuple:
             await asyncio.gather(*tasks_1, get_current_value(session))
         )[:10]
         tasks_2 = [
-            asyncio.create_task(get_company_info(session, company, dollar_value))
+            asyncio.create_task(get_company_info(session, company,
+                                                 dollar_value))
             for data_page in data_pages
             for company in data_page
         ]
