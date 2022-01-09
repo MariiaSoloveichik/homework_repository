@@ -1,0 +1,82 @@
+[
+ {
+  "code": "F",
+  "name": "Ford Motor Co.",
+  "price": 1815.71,
+  "p_e": 21.51,
+  "potential_year_profit": 64.65,
+  "growth": 167.5
+ },
+ {
+  "code": "DVN",
+  "name": "Devon Energy Corp.",
+  "price": 3632.17,
+  "p_e": -167.13,
+  "potential_year_profit": 67.62,
+  "growth": 154.34
+ },
+ {
+  "code": "BBWI",
+  "name": "Bath & Body Works",
+  "price": 4451.61,
+  "p_e": 14.17,
+  "potential_year_profit": null,
+  "growth": 144.13
+ },
+ {
+  "code": "MRO",
+  "name": "Marathon Oil Corp.",
+  "price": 1355.84,
+  "p_e": -5.6,
+  "potential_year_profit": 60.88,
+  "growth": 129.75
+ },
+ {
+  "code": "FTNT",
+  "name": "Fortinet Inc",
+  "price": 23376.91,
+  "p_e": 43.03,
+  "potential_year_profit": 62.58,
+  "growth": 119.75
+ },
+ {
+  "code": "NVDA",
+  "name": "NVIDIA Corp.",
+  "price": 20242.5,
+  "p_e": 51.8,
+  "potential_year_profit": 66.6,
+  "growth": 118.83
+ },
+ {
+  "code": "NUE",
+  "name": "Nucor Corp.",
+  "price": 8502.05,
+  "p_e": 15.99,
+  "potential_year_profit": 62.78,
+  "growth": 115.2
+ },
+ {
+  "code": "FANG",
+  "name": "Diamondback Energy Inc",
+  "price": 9028.04,
+  "p_e": 15.58,
+  "potential_year_profit": 56.58,
+  "growth": 109.71
+ },
+ {
+  "code": "EXR",
+  "name": "Extra Space Storage Inc.",
+  "price": 15478.86,
+  "p_e": 30.52,
+  "potential_year_profit": 52.9,
+  "growth": 100.26
+ },
+ {
+  "code": "SPG",
+  "name": "Simon Property Group Inc.",
+  "price": 11978.2,
+  "p_e": 23.11,
+  "potential_year_profit": 51.58,
+  "growth": 96.04
+ }
+]

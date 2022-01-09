@@ -132,9 +132,8 @@ async def get_company_info(
     """
     Function collects information of all companies from table pages into
     dictionary:
-    - company url
-    - company name
     - company code
+    - company name
     - price
     - p/e
     - growth
@@ -155,15 +154,15 @@ async def get_company_info(
         ",", ""
     )
     company_info = {
-        "name": company_name_href_growth["name"],
         "code": soup.find(
             class_="price-section__category").find("span").text[2:],
+        "name": company_name_href_growth["name"],
         "price": round(float(price_in_dollars) * dollar_value, 2),
         "p_e": get_value(
             "P/E Ratio", soup.find_all("div", class_="snapshot__data-item")
         ),
+        "potential_year_profit": get_potential_profit(soup),
         "growth": company_name_href_growth["growth"],
-        "potential profit": get_potential_profit(soup),
     }
     return company_info
 
