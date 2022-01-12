@@ -10,4 +10,4 @@ def testing_order_morning_discount():
 def testing_order_elder_discount():
     """ Testing calculating the price with elder discount """
     order = Order(100, elder_discount)
-    assert order.final_price() == 90
+    assert order.final_price() == 10

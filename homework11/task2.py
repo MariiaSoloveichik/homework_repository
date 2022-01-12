@@ -56,11 +56,11 @@ def morning_discount(price: Union[float, int]) -> float:
 
 def elder_discount(price: Union[float, int]) -> float:
     """
-        Function calculate the price with discount 10%.
+        Function calculate the price with discount 90%.
         :param price:
         :return: price calculation
         """
-    return price * 0.9
+    return price * 0.1
 
 
 if __name__ == "__main__":
