@@ -105,7 +105,8 @@ class HomeworkResult(Base):
     solution = Column(String)
     created = Column(DateTime)
 
-    def __init__(self, student: "Student", homework: "Homework", solution: str):
+    def __init__(self, student: "Student", homework: "Homework",
+                 solution: str):
         self.author = student
         self.homework = homework
         self.solution = solution
@@ -248,7 +249,8 @@ class Teacher(Base):
 
 
 class DeadlineError(Exception):
-    """Exception which raises when student try to do homework after deadline"""
+    """Exception which raises when student try to do
+     homework after deadline"""
 
 
 session = Session()

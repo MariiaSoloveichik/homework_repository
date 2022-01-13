@@ -3,7 +3,8 @@ from unittest import mock
 
 import pytest
 
-from homework12.models import DeadlineError, HomeworkResult, Session, Student, Teacher
+from homework12.models import DeadlineError, \
+    HomeworkResult, Session, Student, Teacher
 
 
 @pytest.fixture(scope="function")
@@ -18,7 +19,8 @@ def db_session():
 def test_init_student(db_session):
     student = Student("s", "S")
     db_session.add(student)
-    student = db_session.query(Student).filter(Student.first_name == "s").first()
+    student = db_session.query(Student).filter\
+        (Student.first_name == "s").first()
     assert student.last_name == "S"
 
 
