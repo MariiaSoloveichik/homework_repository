@@ -204,7 +204,8 @@ class Teacher(Base):
         return new_hw
 
     @staticmethod
-    def check_homework(student: "Student", homework: "Homework", solution: str) -> bool:
+    def check_homework(student: "Student", homework: "Homework",
+                       solution: str) -> bool:
         """Checking if the length of solution is more than 5 symbols
         and adding HomeworkResult to the table without commiting if it's True.
         :param student: the student who is an author of the solution to check

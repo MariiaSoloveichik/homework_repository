@@ -97,7 +97,7 @@ def test_homeworkresult_with_the_same_solution_is_not_in_table(db_session):
     assert not student2.homework_results
 
 
-def test_reset_results_with_given_homework_deletes_solutions_for_that_homework(
+def test_reset_results_with_given_homework_deletes_solutions(
     db_session,
 ):
     student = Student("s", "S")
@@ -113,7 +113,7 @@ def test_reset_results_with_given_homework_deletes_solutions_for_that_homework(
     )
 
 
-def test_reset_results_without_args_clear_all_homeworkresults(db_session):
+def test_reset_results_without_args_clear_all_hwresults(db_session):
     student = Student("s", "S")
     teacher = Teacher("t", "T")
     homework = teacher.create_homework("HW", 7)
